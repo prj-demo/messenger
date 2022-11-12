@@ -1,0 +1,12 @@
+= turbo_frame_tag channel
+  = link_to channel_path(channel), data:{ bs_parent: '#channels' }, class: "#{active_class(channel_path(channel))} #{channel_active(channel)} justify-content-between", target: '_top' do 
+    .text-capitalize
+      = channel.name
+    div
+      - if channel.common?
+        i.bi.bi-unlock-fill.position-relative.end-50
+      - else
+        i.bi.bi-incognito.position-relative.end-50
+      i.bi.bi-people-fill.position-relative.end-50
+        span.position-absolute.top-0.start-50.translate-middle-y.badge.rounded.bg-danger
+          = channel.participants.count

@@ -1,0 +1,11 @@
+#conversation-container{
+  height: calc(100vh - 55px) !important;
+  .card-body {
+    height: calc(100vh - 170px);
+  }
+}
+
+#btn-menu {
+  z-index: 999999;
+}
+

@@ -1,0 +1,10 @@
+  a.list-group-item.list-group-item-action.list-group-item-light.p-3.d-flex.justify-content-between#users-parent[href='#users' data-bs-toggle="collapse" data-bs-parent="#users"]
+    i.bi.bi-people.me-2    
+    span.justify-content-start.w-100
+      = turbo_stream_from 'user-total'
+      #user-total.d-flex.justify-content-start
+        = render partial: 'channels/users/total', locals: { onlines: onlines, offlines: offlines }
+    i.bi.bi-caret-down-fill
+  = turbo_stream_from 'users'
+  #users.overflow-y-visible.collapse.list-group-submenu.show[data-bs-spy='scroll' data-bs-smooth-scroll='true']
+    = render users

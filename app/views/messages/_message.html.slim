@@ -1,0 +1,12 @@
+.d-flex.flex-shrink-0.ms-auto[class=owner_class(message)]
+  div.py-2
+    .rounded-circle.w-25.h-25.p-3.bg-primary.m-auto
+    .fs-6.fst-italic.fw-light
+      = time_ago_in_words(message.created_at)
+  .flex-shrink-1.bg-light.rounded.py-2.px-3.mb-1[class=message_class(message)]
+    .fw-bold.mb-1.text-capitalize
+      - if is_owner?(message)
+        = t('pages.conversation.message.you')
+      - else 
+        = message.user.email
+    = message.body

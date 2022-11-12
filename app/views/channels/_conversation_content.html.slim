@@ -1,0 +1,10 @@
+#conversation-container.card.rounded-0
+  .card-header
+    h2.m-0.text-capitalize.text-secondary
+      = channel.name
+  .card-body
+    = turbo_stream_from channel
+    .chat-messages.p-1.overflow-hidden.overflow-y-auto.h-100#messages[data-controller='scroll']
+      = render @messages
+  .card-footer.px-2
+    = render partial: 'channels/form', locals: { channel: channel, message: message }

@@ -1,2 +1,10 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+@import './components/text';
+@import './components/margin';
+@import './components/scroll';
+@import './components/card';
+
+@import './layouts/home';
+@import './layouts/conversation';

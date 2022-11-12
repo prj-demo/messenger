@@ -3,7 +3,7 @@ class TurboDeviseUserController < ApplicationController
  class Responder < ActionController::Responder
     def to_turbo_stream
       controller.render(options.merge(formats: :html))
-        rescue ActionView::MissingTemplate => error
+    rescue ActionView::MissingTemplate => error
       if get?
         raise error
       elsif has_errors? && default_action

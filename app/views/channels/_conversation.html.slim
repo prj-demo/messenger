@@ -1,0 +1,10 @@
+/ use to open sidebar menu when reponsive ui
+#btn-menu.btn.btn-danger.btn-sm.position-fixed.top-50.rounded-end.rounded-0.d-sm-none.d-lg-none.d-md-none.d-xl-none.d-xxl-none[data-action="click->toggle#showMenu"]
+  i.bi.bi-list.fs-1
+
+/ conversation container
+.container-fluid.px-0  
+  - if channel
+    = render partial: 'channels/conversation_content', locals: { channel: channel, message: message }
+  - else
+    = render 'channels/conversation_empty'

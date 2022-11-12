@@ -18,3 +18,12 @@ unless User.any?
   User.create(users)
   puts '- Doned.'
 end
+
+unless Channel.any?
+  Channel.create(
+    [
+      { name: 'common', group: Channel.groups[:common]},
+      { name: 'knowledges', group: Channel.groups[:common]},
+    ]
+  )
+end
