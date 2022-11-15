@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_data
+    return if current_user && current_user.is_admin?
     # get all user except user signed (current user)
     @users = User.all_except_current_user.order(status: :desc)
 
@@ -22,6 +23,13 @@ class ApplicationController < ActionController::Base
     
     @onlines = User.online.count
     @offlines = User.offline.count
+  end  
+
+  def after_sign_in_path_for(resource)
+    if resource.is_admin?
+      return avo_path
+    end
+    root_path
   end  
 
   def common_channel

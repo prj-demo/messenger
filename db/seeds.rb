@@ -19,6 +19,10 @@ unless User.any?
   puts '- Doned.'
 end
 
+unless User.where(is_admin: true).any?
+  User.create(email: 'admin@sample.com', password: 'admin@1234', password_confirmation: 'admin@1234', is_admin: true)
+end
+
 unless Channel.any?
   Channel.create(
     [

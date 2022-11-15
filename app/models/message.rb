@@ -23,5 +23,7 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :channel
 
+  scope :by_limit_times, ->(h=2) { where(created_at: (Time.zone.now - h.hours)..Float::INFINITY)}
+
   after_create_commit { broadcast_append_to channel }
 end

@@ -1,10 +1,13 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+@import './utilities/variables';
+@import './utilities/animations';
 @import './components/text';
 @import './components/margin';
 @import './components/scroll';
 @import './components/card';
+@import './components/flash';
 
 @import './layouts/home';
 @import './layouts/conversation';

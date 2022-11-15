@@ -8,5 +8,20 @@ html
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    css: 
+      .sender-#{Current.user&.id} {
+        flex-direction: row-reverse;
+      }
+      .sender-#{Current.user&.id}-body {
+        margin-right: 0.25rem !important;
+      }
+      .sender-by-email:not(.sender-#{Current.user&.id}-name) {
+        display: block !important;
+      }
+
+      .sender-by-name:has(.sender-#{Current.user&.id}-name) {
+        display: block !important;
+      }      
   body.overflow-hidden
+    = render 'layouts/flash'
     = yield
