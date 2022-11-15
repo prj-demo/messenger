@@ -5,6 +5,7 @@
 #  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  is_admin               :boolean          default(FALSE)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -23,6 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  default_scope { where( is_admin: false ) }
   scope :all_except_current_user, -> { where.not(id: Current.user) }
 
   has_many :messages, dependent: :destroy
@@ -43,6 +45,12 @@ class User < ApplicationRecord
 
   def by_personal_channels
     Channel.joins(:participants).personal.where(participants:{user_id: self.id})
+  end
+
+  class << self
+    def find_for_database_authentication(warden_conditions)
+      unscoped.where(warden_conditions.to_h).first
+    end    
   end
 
   private

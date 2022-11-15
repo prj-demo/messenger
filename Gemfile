@@ -76,3 +76,5 @@ gem "devise", "~> 4.8"
 gem "devise-bootstrap5", "~> 0.1.3"
 
 gem "annotate", "~> 3.2"
+
+gem "avo", "~> 2.19"

@@ -1,12 +1,13 @@
-.d-flex.flex-shrink-0.ms-auto[class=owner_class(message)]
+.d-flex.flex-shrink-0.ms-auto[class="sender-#{message.user.id}"]
   div.py-2
     .rounded-circle.w-25.h-25.p-3.bg-primary.m-auto
     .fs-6.fst-italic.fw-light
       = time_ago_in_words(message.created_at)
-  .flex-shrink-1.bg-light.rounded.py-2.px-3.mb-1[class=message_class(message)]
-    .fw-bold.mb-1.text-capitalize
-      - if is_owner?(message)
-        = t('pages.conversation.message.you')
-      - else 
+  .flex-shrink-1.bg-light.rounded.py-2.px-3.mb-1.ms-1[class="sender-#{message.user.id}-body"]
+    .fw-bold.mb-1.text-capitalize.sender-by
+      div.sender-by-name.d-none
+        div[class="sender-#{message.user.id}-name"]
+          = t('pages.conversation.message.you')
+      div.sender-by-email.d-none[class="sender-#{message.user.id}-name"]
         = message.user.email
     = message.body
