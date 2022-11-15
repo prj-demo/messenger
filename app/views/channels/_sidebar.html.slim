@@ -1,0 +1,6 @@
+#sidebar-wrapper.border-end.bg-white
+  .sidebar-heading.border-bottom.bg-light
+    = link_to t('application.name'), root_path, class: 'nav-link'
+  .list-group.list-group-flush
+    = render partial: 'channels/users/list', locals: { users: @users, onlines: @onlines, offlines: @offlines }
+    = render partial: 'channels/list', locals: { channels: @channels }

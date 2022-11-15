@@ -1,0 +1,8 @@
+a.list-group-item.list-group-item-action.list-group-item-light.p-3.d-flex.justify-content-between#channels-parent[href='#channels' data-bs-toggle="collapse" data-bs-parent="#channels"]
+  i.bi.bi-collection.me-2    
+  span.justify-content-start.w-100.text-capitalize
+    = t('pages.sidebar.channels')
+  i.bi.bi-caret-down-fill
+= turbo_stream_from 'channels'
+#channels.overflow-y-visible.collapse.list-group-submenu.show[data-bs-spy='scroll' data-bs-smooth-scroll='true']
+  = render channels

@@ -1,13 +1,22 @@
 .row
+  .col-md-12.border-bottom
+    h1.text-center.py-4
+      = t('application.name')
+      - p Current.user
+
+.row.pt-4
+  .col-md-3
   .col-md-6
-    h2.pb-4
-      = t('.sign_in')
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .mb-3
-        = f.label :email, class: "form-label"
-        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
-      .mb-3
-        = f.label :password, class: "form-label"
-        = f.password_field :password, autocomplete: "current-password", class: 'form-control'
-      .mb-4.mt-4
-        = f.submit t('.sign_in'), class: "btn btn-primary text-capitalize"
+    .sign-in.ps-2
+      h2.pb-4.text-capitalize.border-bottom.border-muted
+        = t('.sign_in')
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .mb-3
+          = f.label :email, class: "form-label"
+          = f.email_field :email, autofocus: true, autocomplete: "off", class: 'form-control'
+        .mb-3
+          = f.label :password, class: "form-label"
+          = f.password_field :password, autocomplete: "off", class: 'form-control'
+        .mb-4.mt-4
+          = f.submit t('.sign_in'), class: "btn btn-primary text-capitalize"
+  .col-md-3

@@ -1,2 +1,13 @@
-h1 Pages#home
-p Find me in app/views/pages/home.html.slim
+.container-fluid
+  .d-flex.align-items-center.justify-content-between.my-4
+    .justify-content-start
+      h1.h3.mb-0.text-gray-800
+        = t('pages.home.dashboard')
+    .justify-content-end
+      = link_to channels_path, class: 'btn btn-sm btn-primary shadow-sm me-1' do 
+        i.bi.bi-chat-dots-fill.text-white-50.me-2
+        = t('pages.home.messenger')
+      = link_to t('users.sessions.sign_out'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: t('confirm.sign_out') }, class: 'btn btn-sm btn-primary shadow-sm'
+  = turbo_stream_from 'dashboard-summary'
+  #dashboard-summary
+    = render partial: 'pages/dashboard_summary', locals: summary 

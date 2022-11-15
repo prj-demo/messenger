@@ -35,3 +35,31 @@ en:
     sessions:
       new:
         sign_in: sign in
+  application:
+    name: Simple Messenger
+    welcome: Welcome %{user} !!!
+  confirm:
+    sign_out: Are you sure to quit application   
+  pages:
+    sidebar:
+      users: "Users(total: %{total})"
+      channels: channels
+    home:
+      dashboard: Dashboard
+      messenger: Goto Messenger
+      card:
+        online: 
+          title: online
+          summary: "%{onlines}/%{total}"
+        channel:
+          common: common channels
+          personal: personal channels
+          participating: participating
+    conversation:
+      message:
+        you: you
+      placeholder:
+        new_message: Type a message
+      empty:
+        title: You have not selected the channel to join
+        description: To join the channel, you need to choose a public channel or a private channel

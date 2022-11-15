@@ -1,0 +1,33 @@
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bs-primary); 
+  border-radius: 0px;
+  &:hover {
+    background: var(---bs-primary); 
+  }
+}
+
+.overflow-y-visible {
+  height: 350px !important;
+  overflow: hidden;
+  overflow-y: visible;
+  &::-webkit-scrollbar-thumb {
+    background: var(--bs-danger); 
+    border-radius: 0px;
+  }
+}
+
+.overflow-y-auto {
+  overflow-y: auto !important;
+}

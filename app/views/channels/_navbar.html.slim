@@ -1,0 +1,15 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom
+  .container-fluid.justify-content-end
+    button.navbar-toggler[type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation']
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.ms-auto.mt-2.mt-lg-0.pt-8.pb-1
+        li.nav-item
+          div.d-flex.d-sm-inline.d-sm-inline.d-xl-inline.d-xxl-inline.d-lg-inline
+            span.navbar-text.me-2.lh-lg.d-flex.d-sm-inline.d-sm-inline.d-xl-inline.d-xxl-inline.d-lg-inline
+              = greeting
+              = link_to t('users.sessions.sign_out'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: t('confirm.sign_out') }, class: 'btn btn-success d-block d-sm-none d-sm-none d-xl-none d-xxl-none d-lg-none ms-1 text-white'            
+        li.nav-item.dropdown
+          = link_to '', 'javascript:void(0)', role: 'button', data: { bs_toggle: 'dropdown' }, aria: { haspopup: true, expanded: false }, class: 'nav-link rounded-circle bg-success mt-2 link-circle d-none d-sm-block d-sm-block d-xl-block d-xxl-block d-lg-block', id: 'navbarDropdown'
+          .dropdown-menu.dropdown-menu-end(aria-labelledby='navbarDropdown')
+            = link_to t('users.sessions.sign_out'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete, turbo_confirm: t('confirm.sign_out') }, class: 'dropdown-item'

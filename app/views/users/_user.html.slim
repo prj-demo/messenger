@@ -1,0 +1,6 @@
+= turbo_frame_tag user
+  = link_to user_path(user), data:{ bs_parent: '#users' }, class: active_class(user_path(user)), target: '_top' do 
+    span
+      i.bi.bi-circle-fill.position-relative.fs-7.d-flex.translate-middle.top-50.mt-6[class=class_names({'text-success': user.online?})]
+    div
+      = user.email
