@@ -1,24 +1,58 @@
-# README
+# Simple Messenger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|   |  Description |
+| ------------ | ------------ |
+| Ruby version | 3.0.0  |
+| Database | PostgreSQL |
+| Unit Test | missing |
+| Rails version | 7.0.4 |
+| Node version | > v14.17.6 |
 
-Things you may want to cover:
+# Run with docker
 
-* Ruby version
+> I using docker compose version v2.12.1
 
-* System dependencies
+```shell
+docker compose up
+```
 
-* Configuration
+# Run from local
 
-* Database creation
+```shell
+cp env.sample .env.deverloper
+```
 
-* Database initialization
+> Please change user/password in file .env.development
 
-* How to run the test suite
+### Install gem files
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+bundle install
+```
 
-* Deployment instructions
+### Create database
 
-* ...
+```shell
+rails db:create
+rails db:migrate
+```
+
+### Create sample data
+
+```shell
+rails db:seed
+```
+
+> System will create 6 users with same password is ```password```
+> user1@sample.com, ..., user6@sample.com
+> Please review file seed.rb
+
+### Run server
+
+```shell
+bin/dev
+```
+
+# Admin
+
+> Please sign in with email ```admin@sample.com```, password ```admin@1234```
