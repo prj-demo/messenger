@@ -8,6 +8,22 @@
 | Rails version | 7.0.4 |
 | Node version | > v14.17.6 |
 
+# User
+
+###### There are 2 user groups: ```normal``` and ```admin``` (```is_admin: true```)
+
+###### For regular users, they can create their own channel between two users or can join a public channel
+
+###### With the admin user, they only manage the system, can't chat with other users
+
+# Channel
+
+###### There are 2 channel groups: ```personal``` and ```common```
+
+###### For regular users, they can create ```personal``` channel, not ```common``` channel
+
+###### With admin user, it's the opposite of normal users
+
 # Run with docker
 
 > I using docker compose version v2.12.1
